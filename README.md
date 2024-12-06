@@ -1,50 +1,77 @@
-# Welcome to your Expo app 👋
+# Uber Clone
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A React Native application that replicates core Uber functionality, built with modern technologies and best practices.
 
-## Get started
+## 🚀 Technologies
 
-1. Install dependencies
+- React Native
+- TypeScript
+- TailwindCSS (via NativeWind)
+- Expo
+- ESLint & Prettier
 
-   ```bash
-   npm install
-   ```
+## ✨ Features
 
-2. Start the app
+- Modern UI with custom font (Plus Jakarta Sans)
+- Comprehensive color system
+- Type-safe development
+- Code formatting and linting
+- Mobile-first design
 
-   ```bash
-    npx expo start
-   ```
+## 🛠️ Installation
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+1. Clone the repository:
 ```bash
-npm run reset-project
+git clone <your-repo-url>
+cd uber-clone
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
 
-## Learn more
+3. Start the development server:
+```bash
+npm start
+# or
+yarn start
+```
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🎨 Design System
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+The application uses a carefully crafted design system including:
 
-## Join the community
+- Custom font families (Jakarta Sans variants)
+- Comprehensive color palette:
+  - Primary colors (blues)
+  - Secondary colors (grays)
+  - Success colors (greens)
+  - Danger colors (reds)
+  - Warning colors (yellows)
+  - General utility colors
 
-Join our community of developers creating universal apps.
+## 📝 Code Style
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+This project uses:
+- ESLint for code linting
+- Prettier for code formatting
+- TypeScript for type safety
+
+## 📱 Development
+
+The app is built with Expo and React Native. To run on your device:
+
+1. Install Expo Go on your mobile device
+2. Run `npm start` or `yarn start`
+3. Scan the QR code with Expo Go (Android) or Camera app (iOS)
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+## 📄 License
+
+This project is [MIT](LICENSE) licensed.

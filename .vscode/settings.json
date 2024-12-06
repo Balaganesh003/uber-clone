@@ -3,11 +3,11 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "[typescriptreact]": {
-    "editor.defaultFormatter": null
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
 
   "[typescript]": {
-    "editor.defaultFormatter": null
+
   },
 
   "editor.codeActionsOnSave": {
