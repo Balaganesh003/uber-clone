@@ -1,77 +1,70 @@
 import { router } from 'expo-router'
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Image, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import Swiper from 'react-native-swiper'
-import { onboarding } from '../../constants'
 
-const Welcome = () => {
+import CustomButton from '@/components/CustomButton'
+import { onboarding } from '@/constants'
+
+const Home = () => {
   const swiperRef = useRef<Swiper>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const isLastSlide = activeIndex === onboarding.length - 1
 
   return (
-    <SafeAreaView className='flex-1 bg-white'>
-      <View className='flex-1'>
-        <TouchableOpacity
-          onPress={() => router.push('/(auth)/sign-in')}
-          className='absolute right-5 top-5 z-10'
-        >
-          <Text className='text-primary-500 font-JakartaMedium text-base'>
-            Skip
-          </Text>
-        </TouchableOpacity>
+    <SafeAreaView className='flex h-full items-center justify-between bg-white'>
+      <TouchableOpacity
+        onPress={() => {
+          router.replace('/(auth)/sign-up')
+        }}
+        className='w-full flex justify-end items-end p-5'
+      >
+        <Text className='text-black text-md font-JakartaBold'>Skip</Text>
+      </TouchableOpacity>
 
-        <Swiper
-          ref={swiperRef}
-          loop={false}
-          dotStyle={{
-            width: 32,
-            height: 4,
-            borderRadius: 2,
-            backgroundColor: '#e2e8f0',
-            marginBottom: 32,
-          }}
-          activeDotStyle={{
-            width: 32,
-            height: 4,
-            borderRadius: 2,
-            backgroundColor: '#0286ff',
-            marginBottom: 32,
-          }}
-        >
-          {onboarding.map((slide, index) => (
-            <View key={index} className='flex-1 px-6'>
-              <View className='flex-[0.6] items-center justify-center'>
-                <Image
-                  source={slide.image}
-                  className='w-full h-[300]'
-                  resizeMode='contain'
-                />
-              </View>
-              <View className='flex-[0.4] items-center justify-start gap-y-4'>
-                <Text className='text-3xl font-JakartaBold text-center text-gray-900'>
-                  {slide.title}
-                </Text>
-                <Text className='text-base font-JakartaMedium text-center text-gray-600 px-4'>
-                  {slide.description}
-                </Text>
-              </View>
+      <Swiper
+        ref={swiperRef}
+        loop={false}
+        dot={
+          <View className='w-[32px] h-[4px] mx-1 bg-[#E2E8F0] rounded-full' />
+        }
+        activeDot={
+          <View className='w-[32px] h-[4px] mx-1 bg-[#0286FF] rounded-full' />
+        }
+        onIndexChanged={(index) => setActiveIndex(index)}
+      >
+        {onboarding.map((item) => (
+          <View key={item.id} className='flex items-center justify-center p-5'>
+            <Image
+              source={item.image}
+              className='w-full h-[300px]'
+              resizeMode='contain'
+            />
+            <View className='flex flex-row items-center justify-center w-full mt-10'>
+              <Text className='text-black text-3xl font-bold mx-10 text-center'>
+                {item.title}
+              </Text>
             </View>
-          ))}
-        </Swiper>
-
-        <View className='px-6 pb-8'>
-          <TouchableOpacity
-            onPress={() => router.push('/(auth)/sign-in')}
-            className='w-full bg-primary-500 py-4 rounded-xl'
-          >
-            <Text className='text-white font-JakartaBold text-center text-lg'>
-              Get Started
+            <Text className='text-md font-JakartaSemiBold text-center text-[#858585] mx-10 mt-3'>
+              {item.description}
             </Text>
-          </TouchableOpacity>
-        </View>
-      </View>
+          </View>
+        ))}
+      </Swiper>
+
+      <CustomButton
+        title={isLastSlide ? 'Get Started' : 'Next'}
+        onPress={() =>
+          isLastSlide
+            ? router.replace('/(auth)/sign-up')
+            : swiperRef.current?.scrollBy(1)
+        }
+        className='w-11/12 mt-10 mb-5 py-4 transition-all duration-300 ease-in'
+      />
     </SafeAreaView>
   )
 }
 
-export default Welcome
+export default Home
